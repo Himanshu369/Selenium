@@ -1,0 +1,40 @@
+package TestCase;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+
+public class FirstTest {
+	
+	public static void main(String[] args) {
+		test();
+	}
+	
+	@Test
+	public static void test() {
+		
+		WebDriver driver;
+			System.setProperty("webdriver.chrome.driver", "/home/ubuntu/chromedriver");
+		    ChromeOptions options = new ChromeOptions();
+		    options.addArguments("--headless", "--disable-gpu");
+		    options.addArguments("start-maximized");
+		    options.addArguments("disable-infobars"); 
+		    options.addArguments("--disable-extensions"); 
+		    options.addArguments("--disable-gpu"); 
+		    options.addArguments("--no-sandbox", "--disable-dev-shm-usage"); 
+		    driver = new ChromeDriver(options);
+		    driver.manage().window().maximize();
+		    
+			driver.get("https://www.bing.com");
+			System.out.println(driver.getTitle());
+			driver.findElement(By.name("q")).sendKeys(new CharSequence [] { "intellipaat" } );
+		
+	}
+	}
+	
+	
+	
+	
+	
